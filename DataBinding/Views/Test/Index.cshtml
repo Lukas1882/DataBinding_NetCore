@@ -1,0 +1,52 @@
+@model  DataBinding.ViewModels.RegisterForm
+@{
+    ViewData["Title"] = "Regoster Page";
+}
+<h2>@ViewData["Title"].</h2>
+@using(Html.BeginForm())
+    {
+    <div class="editor-label">
+        @Html.LabelFor(Model => Model.Email)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(Model => Model.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(Model => Model.UserName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(Model => Model.UserName)
+        @Html.ValidationMessageFor(m => m.UserName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(Model => Model.Gender)
+    </div>
+    <div class="editor-field">
+        @Html.Label(Model.GenderOptions[0])
+        @Html.RadioButtonFor(Model => Model.Gender, Model.GenderOptions[0])
+        @Html.Label(Model.GenderOptions[1])
+        @Html.RadioButtonFor(Model => Model.Gender, Model.GenderOptions[1])
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(Model => Model.Password)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(Model => Model.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(Model => Model.ConfirmPassword)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(Model => Model.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <br />
+    <button type="submit">Submit</button>
+    }
